@@ -2,10 +2,10 @@
 
 import {BaseController} from 'luizalabs-nodejs-commons';
 import HTTPStatus from 'http-status';
-import Business from './user-business';
+import Business from './analitics-business';
 import _ from 'lodash';
 
-export default class UserController extends BaseController {
+export default class AnaliticsController extends BaseController {
   constructor () {
     super();
     this._business = new Business();

@@ -23,15 +23,37 @@ export function list () {
 export function create () {
   return {
     payload: Joi.object().keys({
-      name: Joi
-        .string()
-        .min(3)
-        .max(500)
-        .trim()
+      age: Joi
+        .number()
+        .min(1)
+        .max(99)
         .required(),
-      active: Joi
-        .boolean()
-    }).required().meta({ className: ' User' })
+      medic: Joi
+        .bool()
+        .required(),
+      nausea: Joi
+        .bool()
+        .required(),
+      dizziness: Joi
+        .bool()
+        .required(),
+      skinMark: Joi
+        .bool()
+        .required(),
+      diagnostic: Joi
+        .bool()
+        .required(),
+      disease: Joi
+        .string()
+        .length(45)
+        .required(),
+      startDate: Joi
+        .date()
+        .required(),
+      endDate: Joi
+        .date()
+        .required()
+    }).required().meta({ className: ' Reports' })
   };
 }
 
@@ -63,7 +85,7 @@ export function update () {
         .required(),
       active: Joi
         .boolean()
-    }).required().meta({ className: ' User' })
+    }).required().meta({ className: ' Reports' })
   };
 }
 

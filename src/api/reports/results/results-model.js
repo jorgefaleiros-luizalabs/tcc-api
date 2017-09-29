@@ -1,32 +1,31 @@
 'use strict';
 
 export default function (sequelize, DataTypes) {
-  const User = sequelize.define('user', {
+  const Results = sequelize.define('results', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
-      field: 'name',
-      type: DataTypes.STRING(200),
+    reportId: {
+      field: 'report_id',
+      type: DataTypes.INTEGER(2),
       allowNull: false
     },
-    active: {
-      field: 'active',
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: 1
+    result: {
+      field: 'result',
+      type: DataTypes.FLOAT(2, 2),
+      allowNull: false
     }
   }, {
     classMethods: {
       associate: function (models) {
       }
     },
-    tableName: 'user',
+    tableName: 'tb_report_results',
     freezeTableName: true,
-    timestamps: false
+    timestamps: true
   });
-  return User;
+  return Results;
 }

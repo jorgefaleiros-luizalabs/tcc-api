@@ -3,11 +3,11 @@
 import { sequelize } from '../../config/database';
 
 const models = sequelize().models;
-const user = models.user;
+const reports = models.reports;
 
-export default class UserDao {
+export default class ReportsDao {
   findAll (options) {
-    return user.findAll({
+    return reports.findAll({
       where: options.where,
       offset: options.paging.offset,
       limit: options.paging.limit
@@ -15,21 +15,22 @@ export default class UserDao {
   }
 
   create (obj) {
-    return user.create(obj);
+    return reports.create(obj);
   }
 
   update (options) {
-    return user.update(options.model, {
+    return reports.update(options.model, {
       where: options.where
     });
   }
 
   findOne (options) {
-    return user.findOne(options);
+    return reports.findOne(options);
   }
 
   byId (id, options) {
-    return user.findOne({
+    return reports.findOne({
+      include: options.includes,
       where: {
         id: id
       }
@@ -37,7 +38,7 @@ export default class UserDao {
   }
 
   delete (id, options) {
-    return user.destroy({
+    return reports.destroy({
       force: options.force,
       where: {
         id: id

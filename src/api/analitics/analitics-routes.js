@@ -1,7 +1,7 @@
 'use strict';
 
-import Controller from './user-controller';
-import * as Validator from './user-schema';
+import Controller from './analitics-controller';
+import * as Validator from './analitics-schema';
 
 exports.register = (server, options, next) => {
   const controller = new Controller();
@@ -10,46 +10,46 @@ exports.register = (server, options, next) => {
 
   server.route([{
     method: 'GET',
-    path: '/users',
+    path: '/analitic',
     handler: controller.list,
     config: {
-      description: 'List users',
+      description: 'List analiticss',
       tags: ['api'],
       validate: Validator.list()
     }
   }, {
     method: 'POST',
-    path: '/users',
+    path: '/analitic',
     handler: controller.create,
     config: {
-      description: 'Create user',
+      description: 'Create analitics',
       tags: ['api'],
       validate: Validator.create()
     }
   }, {
     method: 'GET',
-    path: '/users/{id}',
+    path: '/analitic/{id}',
     handler: controller.read,
     config: {
-      description: 'Read user by ID',
+      description: 'Read analitics by ID',
       tags: ['api'],
       validate: Validator.read()
     }
   }, {
     method: 'PUT',
-    path: '/users/{id}',
+    path: '/analitic/{id}',
     handler: controller.update,
     config: {
-      description: 'Update user by ID',
+      description: 'Update analitics by ID',
       tags: ['api'],
       validate: Validator.update()
     }
   }, {
     method: 'DELETE',
-    path: '/users/{id}',
+    path: '/analitic/{id}',
     handler: controller.remove,
     config: {
-      description: 'Delete user by ID',
+      description: 'Delete analitics by ID',
       tags: ['api'],
       validate: Validator.remove()
     }
@@ -59,6 +59,6 @@ exports.register = (server, options, next) => {
 };
 
 exports.register.attributes = {
-  name: 'users-route',
+  name: 'analiticss-route',
   version: '1.0.0'
 };

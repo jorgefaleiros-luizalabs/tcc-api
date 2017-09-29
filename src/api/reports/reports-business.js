@@ -1,12 +1,12 @@
 'use strict';
 
 import {BaseBusiness} from 'luizalabs-nodejs-commons';
-import UserDao from './user-dao';
+import ReportsDao from './reports-dao';
 
-export default class UserBusiness extends BaseBusiness {
+export default class ReportsBusiness extends BaseBusiness {
   constructor () {
     super();
-    this._dao = new UserDao();
+    this._dao = new ReportsDao();
   }
 
   findAll (options) {
@@ -18,7 +18,7 @@ export default class UserBusiness extends BaseBusiness {
       },
       where: where
     })
-      .then(super.notFound('Users'))
+      .then(super.notFound('Reportss'))
       .then(result => result);
   }
 
@@ -31,7 +31,7 @@ export default class UserBusiness extends BaseBusiness {
   byId (options) {
     let id = options.params.id;
     return this._dao.byId(id, options)
-      .then(super.notFound('User'));
+      .then(super.notFound('Reports'));
   }
 
   update (options) {
@@ -39,7 +39,7 @@ export default class UserBusiness extends BaseBusiness {
     let obj = options.payload;
 
     return this._dao.byId(id)
-      .then(super.notFound('User'))
+      .then(super.notFound('Reports'))
       .then(() => {
         return this._dao.update({
           model: obj,
@@ -54,7 +54,7 @@ export default class UserBusiness extends BaseBusiness {
   delete (options) {
     let id = options.params.id;
     return this._dao.byId(id)
-      .then(super.notFound('User'))
+      .then(super.notFound('Reports'))
       .then(() => this._dao.delete(id, options));
   }
 }
