@@ -45,8 +45,12 @@ export function create () {
         .required(),
       disease: Joi
         .string()
-        .length(45)
+        .max(45)
         .required(),
+      latitude: Joi
+        .number(),
+      longitude: Joi
+        .number(),
       startDate: Joi
         .date()
         .required(),

@@ -13,47 +13,59 @@ export default function (sequelize, DataTypes) {
       type: DataTypes.INTEGER(2)
     },
     medic: {
-      field: 'site_id',
+      field: 'medic',
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
     nausea: {
-      field: 'zipcode_initial',
+      field: 'nausea',
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
     dizziness: {
-      field: 'zipcode_final',
+      field: 'dizziness',
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
     skinMark: {
-      field: 'created_user',
+      field: 'skin_mark',
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
     diagnostic: {
-      field: 'created_user',
+      field: 'diagnostic',
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
     disease: {
-      field: 'created_user',
+      field: 'disease',
       type: DataTypes.STRING(45),
-      allowNull: false
+      allowNull: true
     },
     startDate: {
-      field: 'created_user',
+      field: 'start_date',
       type: DataTypes.DATE,
       allowNull: false
     },
     endDate: {
-      field: 'created_user',
+      field: 'end_date',
       type: DataTypes.DATE,
       allowNull: false
     },
+    latitude: {
+      field: 'latitude',
+      type: DataTypes.FLOAT(11, 8)
+    },
+    longitude: {
+      field: 'longitude',
+      type: DataTypes.FLOAT(11, 8)
+    },
     createdAt: {
       field: 'created_at',
+      type: DataTypes.DATE
+    },
+    updatedAt: {
+      field: 'updated_at',
       type: DataTypes.DATE
     }
   }, {

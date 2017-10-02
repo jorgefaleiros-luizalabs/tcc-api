@@ -27,6 +27,10 @@ module.exports = {
       createdAt: {
         field: 'created_at',
         type: Sequelize.DATE
+      },
+      updatedAt: {
+        field: 'updated_at',
+        type: Sequelize.DATE
       }
     });
   },

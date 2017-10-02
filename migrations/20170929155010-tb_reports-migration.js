@@ -14,47 +14,59 @@ module.exports = {
         type: Sequelize.INTEGER(2)
       },
       medic: {
-        field: 'site_id',
+        field: 'medic',
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       nausea: {
-        field: 'zipcode_initial',
+        field: 'nausea',
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       dizziness: {
-        field: 'zipcode_final',
+        field: 'dizziness',
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       skinMark: {
-        field: 'created_user',
+        field: 'skin_mark',
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       diagnostic: {
-        field: 'created_user',
+        field: 'diagnostic',
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       disease: {
-        field: 'created_user',
+        field: 'disease',
         type: Sequelize.STRING(45),
-        allowNull: false
+        allowNull: true
       },
       startDate: {
-        field: 'created_user',
+        field: 'start_date',
         type: Sequelize.DATE,
         allowNull: false
       },
       endDate: {
-        field: 'created_user',
+        field: 'end_date',
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: true
+      },
+      latitude: {
+        field: 'latitude',
+        type: Sequelize.FLOAT(11, 8)
+      },
+      longitude: {
+        field: 'longitude',
+        type: Sequelize.FLOAT(11, 8)
       },
       createdAt: {
         field: 'created_at',
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        field: 'updated_at',
         type: Sequelize.DATE
       }
     });

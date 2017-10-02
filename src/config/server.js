@@ -6,7 +6,7 @@ import Hapi from 'hapi';
 
 // load plugins
 import ResponseTime from 'hapi-response-time';
-import { Auth, Documentation, ReplyDecorator, Routes, LogManager } from 'luizalabs-nodejs-commons-hapi';
+import { Documentation, Routes, LogManager } from 'luizalabs-nodejs-commons-hapi';
 
 if (Config.useNewRelic) {
   require('newrelic');
@@ -31,7 +31,6 @@ Server.connection({
 });
 
 const plugins = [
-  { register: ReplyDecorator },
   { register: ResponseTime },
   {
     register: Documentation,
@@ -46,18 +45,6 @@ const plugins = [
         version: '1.0.0'
       },
       title: 'tcc-api'
-    }
-  },
-  {
-    register: Auth,
-    options: {
-      validateFunc: function (decoded, request, cb) {
-        return new Promise((resolve, reject) => {
-          resolve();
-        })
-          .then(() => { cb(null, true); return null; })
-          .catch(() => cb(null, false));
-      }
     }
   },
   { register: Routes, options: { config: Config } }
